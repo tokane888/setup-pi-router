@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable PWR LED
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo none > /sys/class/leds/PWR/trigger && echo 0 > /sys/class/leds/PWR/brightness'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
